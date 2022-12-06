@@ -85,7 +85,8 @@ SecretSanta.prototype.generate = function () {
     for (var key in pairings) {
         if (this.askers.indexOf(key) == this.askers.indexOf(pairings[key])) {
             console.log("FALSE");
-            break;
+            console.log(key)
+            console.log(pairings[key])
         }
         if (prev.includes(pairings[key])) {
             console.log("previously in");
