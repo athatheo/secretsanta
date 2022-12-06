@@ -2,27 +2,23 @@
 var SecretSanta = function () {
     this.submitter = []
     this.seed = 'hello'
-    this.names = ['Tatinator', 'vostidi', 'protagonistis', 'bobos','papajim','akis kripakis'];
-    this.askers = ['soulta1', 'boston2', 'wattwil3', 'megalexandros4','ichwill5','elcapitano6']
+    this.names = ['Tatinator', 'vostidi', 'protagonistis', 'bobos', 'papajim', 'akis kripakis'];
+    this.askers = ['soulta1', 'boston2', 'wattwil3', 'megalexandros4', 'ichwill5', 'elcapitano6']
 };
 
-SecretSanta.prototype.add = function ( name ) {
+SecretSanta.prototype.add = function (name) {
     if (this.askers.includes(name)) {
-        this.submitter.push( name );
+        this.submitter.push(name);
     }
 };
-function getRandomInt(max) {
-    seed = this.seed
-    Math.seedrandom(seed);
-    return Math.floor(Math.random() * max);
-  }
 
-  SecretSanta.prototype.generate = function () {
 
-    var pairings = Object.create( null );
-    var candidatePairings = Object.create( null );
+SecretSanta.prototype.generate = function () {
 
-    this.names.forEach( function ( name ) {
+    var pairings = Object.create(null);
+    var candidatePairings = Object.create(null);
+
+    this.names.forEach(function (name) {
 
 
         // if ( Object.prototype.hasOwnProperty.call( this.enforced, name ) ) {
@@ -44,53 +40,48 @@ function getRandomInt(max) {
 
         // } else {
 
-            var candidates = _.difference( this.names, [ name ] );
+        var candidates = _.difference(this.names, [name]);
 
         //     if ( Object.prototype.hasOwnProperty.call( this.blacklists, name ) )
         //         candidates = _.difference( candidates, this.blacklists[ name ] );
-        candidatePairings[ name ] = candidates;
+        candidatePairings[name] = candidates;
 
         // }
 
-    }, this );
+    }, this);
 
     var findNextGifter = function () {
 
-        var names = Object.keys( candidatePairings );
+        var names = Object.keys(candidatePairings);
 
-        var minCandidateCount = _.min( names.map( function ( name ) { return candidatePairings[ name ].length; } ) );
-        var potentialGifters = names.filter( function ( name ) { return candidatePairings[ name ].length === minCandidateCount; } );
-        
+        var minCandidateCount = _.min(names.map(function (name) { return candidatePairings[name].length; }));
+        var potentialGifters = names.filter(function (name) { return candidatePairings[name].length === minCandidateCount; });
+
         return potentialGifters[getRandomInt(potentialGifters.length)];
 
     };
-    Math.seedrandom('hi')
-    _ = _.runInContext();
-    console.log(_.random())
-    console.log(_.random())
-    console.log(_.random())
-    console.log(_.sample( candidatePairings[ 'Tatinator' ] ));
-    while ( Object.keys( candidatePairings ).length > 0 ) {
+
+    while (Object.keys(candidatePairings).length > 0) {
 
         var name = findNextGifter();
 
-        if ( candidatePairings[ name ].length === 0 )
+        if (candidatePairings[name].length === 0)
             throw new Error('We haven\'t been able to find a match for ' + name + '! Press "Generate" to try again and, if it still doesn\'t work, try removing some exclusions from your rules. Sorry for the inconvenience!');
         this.seed = this.seed + 1
-        var num = getRandomInt(Object.keys(candidatePairings).length)
-        
-        var pairing = _.sample( candidatePairings[ name ] );
-        delete candidatePairings[ name ];
+        Math.seedrandom(this.seed)
+        _ = _.runInContext();
+        var pairing = _.sample(candidatePairings[name]);
+        delete candidatePairings[name];
 
-        Object.keys( candidatePairings ).forEach( function ( name ) {
-            candidatePairings[ name ] = _.without( candidatePairings[ name ], pairing );
-        } );
+        Object.keys(candidatePairings).forEach(function (name) {
+            candidatePairings[name] = _.without(candidatePairings[name], pairing);
+        });
 
-        pairings[ name ] = pairing;
+        pairings[name] = pairing;
 
     }
     for (var key in pairings) {
-        if (key==pairings[key]){
+        if (key == pairings[key]) {
             console.log("FALSE")
             break;
         }
@@ -99,6 +90,7 @@ function getRandomInt(max) {
     key = this.names[this.askers.indexOf(this.submitter[0])]
     value = pairings[this.names[this.askers.indexOf(this.submitter[0])]]
     x[key] = value
+    console.log(pairings)
     return x;
 
 };
