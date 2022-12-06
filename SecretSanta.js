@@ -4,7 +4,7 @@ var SecretSanta = function () {
     this.names = ['Tatinator', 'vostidi', 'protagonistis', 'bobos'];
     this.askers = ['soulta1', 'boston2', 'wattwil3', 'megalexandros4','ichwill5','elcapitano6']
 };
-<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js"></script>
+//<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js"></script>
 
 SecretSanta.prototype.add = function ( name ) {
     if (this.askers.includes(name)) {
@@ -13,7 +13,8 @@ SecretSanta.prototype.add = function ( name ) {
 };
 
 SecretSanta.prototype.generate = function () {
-    Math.seedrandom('hello.');
+    seed = 'hello'
+    Math.seedrandom(x);
     console.log(Math.random()); 
     console.log(Math.random()); 
 
@@ -23,6 +24,10 @@ SecretSanta.prototype.generate = function () {
     var flag = true;
     while (flag) {
 
+        if (flag){
+            seed = seed + 1
+            Math.seedrandom(x)
+        }
     }
 
     this.names.forEach( function ( name ) {            
