@@ -2,7 +2,7 @@
 var SecretSanta = function () {
     this.submitter = []
     this.seed = 'hello'
-    this.names = ['Tatinator', 'vostidi', 'protagonistis', 'bobos', 'papajim', 'akis kripakis'];
+    this.names = ['tatinator', 'vostidi', 'protagonistis', 'bobos', 'mrichwill', 'akis kripakis'];
     this.askers = ['soulta1', 'boston2', 'wattwil3', 'megalexandros4', 'ichwill5', 'elcapitano6']
 };
 
@@ -96,7 +96,6 @@ SecretSanta.prototype.generate = function () {
     key = this.names[this.askers.indexOf(this.submitter[0])]
     value = pairings[this.names[this.askers.indexOf(this.submitter[0])]]
     x[key] = value
-    console.log(pairings)
     return x;
 
 };

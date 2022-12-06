@@ -141,8 +141,13 @@
     </head>
 
     <body>
-        <img id="image6" src="assets/ast.png" width="400" height="400"/>
-        
+        <img id="ast" src="assets/ast.png" width="400" height="400"/>
+        <img id="papa" src="assets/papa.png" width="400" height="400"/>
+        <img id="geo" src="assets/geo.png" width="400" height="400"/>
+        <img id="tati" src="assets/tati.png" width="400" height="400"/>
+        <img id="theo" src="assets/theo.png" width="400" height="400"/>
+        <img id="tax" src="assets/tax.png" width="400" height="400"/>
+
         <div class="main">
 
             <div class="wrapper">
@@ -156,7 +161,27 @@
                         <div id="pairing-details"></div>
                         <script>
                             document.getElementById('pairing-name').innerText = pairingDefinition[1];
-                            
+                            this.names = ['tatinator', 'vostidi', 'protagonistis', 'bobos', 'mrichwill', 'akis kripakis'];
+
+                            if (name=='tatinator') {
+                                document.getElementById('tati')
+                    .style.display = "block";
+                            } else if (name=='vostidi') {
+                                document.getElementById('theo')
+                    .style.display = "block";
+                            } else if (name=='protagonistis') {
+                                document.getElementById('tax')
+                    .style.display = "block";
+                            } else if (name=='bobos') {
+                                document.getElementById('geo')
+                    .style.display = "block";
+                            } else if (name=='mrichwill') {
+                                document.getElementById('papa')
+                    .style.display = "block";
+                            } else if (name=='akis kripakis') {
+                                document.getElementById('ast')
+                    .style.display = "block";
+                            }
                             if (pairingDefinition[2]) {
                                 document.getElementById('pairing-details').innerText = pairingDefinition[2];
                             } else {
