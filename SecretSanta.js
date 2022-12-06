@@ -83,7 +83,7 @@ SecretSanta.prototype.generate = function () {
     }
     prev = []
     for (var key in pairings) {
-        if (this.askers.indexOf(key) == this.askers.indexOf(pairings[key])) {
+        if (this.names.indexOf(key) == this.names.indexOf(pairings[key])) {
             console.log("FALSE");
             console.log(key)
             console.log(pairings[key])
