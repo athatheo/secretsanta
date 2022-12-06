@@ -1,10 +1,10 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js"></script>
 
 var SecretSanta = function () {
     this.submitter = []
     this.names = ['Tatinator', 'vostidi', 'protagonistis', 'bobos'];
     this.askers = ['soulta1', 'boston2', 'wattwil3', 'megalexandros4','ichwill5','elcapitano6']
 };
+<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js"></script>
 
 SecretSanta.prototype.add = function ( name ) {
     if (this.askers.includes(name)) {
