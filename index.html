@@ -309,32 +309,12 @@
       }
 
       function generate( e ) {
-          console.log("asd;lfas;lkdfas;ljfdasl;dfasdf")
           e.preventDefault();
 
           var content = document.getElementById( 'input' ).value;
+         var lines = content.split( /\n/g );
 
-          // Convert carriage returns into line feeds
-          content = content.replace( /(\r\n|\r)/g, '\n' );
-
-          // Merge adjacent blank characters into a single space
-          content = content.replace( /[ \t]+/g, ' ' );
-
-          // Trim lines
-          content = content.replace( /^ | $/gm, '' );
-
-          // Strip comments
-          content = content.replace( /^#.*$/gm, '' );
-
-          // Strip empty lines
-          content = content.replace( /\n+/g, '\n' );
-
-          // Remove leading/trailing newlines
-          content = content.replace( /^\n|\n$/g, '' );
-
-          var lines = content.split( /\n/g );
-
-          if ( lines.length === 0 || lines.length === 1 && lines[ 0 ].length === 0 )
+          if ( lines.length === 0 ||  lines[ 0 ].length === 0 )
               return reset();
 
           var santa = new SecretSanta();
