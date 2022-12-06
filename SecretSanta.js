@@ -64,7 +64,12 @@ function getRandomInt(max) {
         return potentialGifters[getRandomInt(potentialGifters.length)];
 
     };
-
+    Math.seedrandom('hi')
+    _ = _.runInContext();
+    console.log(_.random())
+    console.log(_.random())
+    console.log(_.random())
+    console.log(_.sample( candidatePairings[ 'Tatinator' ] ));
     while ( Object.keys( candidatePairings ).length > 0 ) {
 
         var name = findNextGifter();
@@ -73,6 +78,7 @@ function getRandomInt(max) {
             throw new Error('We haven\'t been able to find a match for ' + name + '! Press "Generate" to try again and, if it still doesn\'t work, try removing some exclusions from your rules. Sorry for the inconvenience!');
         this.seed = this.seed + 1
         var num = getRandomInt(Object.keys(candidatePairings).length)
+        
         var pairing = _.sample( candidatePairings[ name ] );
         delete candidatePairings[ name ];
 
@@ -89,9 +95,10 @@ function getRandomInt(max) {
             break;
         }
     }
+    x = {}
     key = this.names[this.askers.indexOf(this.submitter[0])]
     value = pairings[this.names[this.askers.indexOf(this.submitter[0])]]
-    x = {key: value}
+    x[key] = value
     return x;
 
 };
