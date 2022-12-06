@@ -66,7 +66,7 @@ SecretSanta.prototype.generate = function () {
     while (Object.keys(candidatePairings).length > 0) {
 
         var name = findNextGifter();
-
+        console.log(candidatePairings)
         if (candidatePairings[name].length === 0)
             throw new Error('We haven\'t been able to find a match for ' + name + '! Press "Generate" to try again and, if it still doesn\'t work, try removing some exclusions from your rules. Sorry for the inconvenience!');
         var pairing = candidatePairings[name][getRandomInt(candidatePairings[name].length)]//_.sample(candidatePairings[name]);
