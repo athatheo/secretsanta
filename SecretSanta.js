@@ -14,6 +14,7 @@ SecretSanta.prototype.add = function (name) {
 
 
 SecretSanta.prototype.generate = function () {
+    for (plus = 0; plus < 10; plus++){
 
     var pairings = Object.create(null);
     var candidatePairings = Object.create(null);
@@ -50,7 +51,7 @@ SecretSanta.prototype.generate = function () {
 
     }, this);
     var getRandomInt = function(max, seed) {
-        Math.seedrandom(seed+3)
+        Math.seedrandom(seed+plus)
         
          rndInt = Math.floor(Math.random() * max)
          return rndInt
@@ -68,7 +69,6 @@ SecretSanta.prototype.generate = function () {
     while (Object.keys(candidatePairings).length > 0) {
 
         var name = findNextGifter();
-        console.log(candidatePairings, name)
         if (candidatePairings[name].length === 0)
             throw new Error('We haven\'t been able to find a match for ' + name + '! Press "Generate" to try again and, if it still doesn\'t work, try removing some exclusions from your rules. Sorry for the inconvenience!');
         var pairing = candidatePairings[name][getRandomInt(candidatePairings[name].length, candidatePairings[name])]//_.sample(candidatePairings[name]);
@@ -98,6 +98,7 @@ SecretSanta.prototype.generate = function () {
     value = pairings[this.names[this.askers.indexOf(this.submitter[0])]]
     x[key] = value
     console.log(pairings)
+}
     return x;
 
 };
