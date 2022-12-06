@@ -2,7 +2,7 @@
 var SecretSanta = function () {
     this.submitter = []
     this.seed = 'hello'
-    this.names = ['Tatinator', 'vostidi', 'protagonistis', 'bobos'];
+    this.names = ['Tatinator', 'vostidi', 'protagonistis', 'bobos','papajim','akis kripakis'];
     this.askers = ['soulta1', 'boston2', 'wattwil3', 'megalexandros4','ichwill5','elcapitano6']
 };
 
@@ -49,7 +49,7 @@ function getRandomInt(max) {
         //     if ( Object.prototype.hasOwnProperty.call( this.blacklists, name ) )
         //         candidates = _.difference( candidates, this.blacklists[ name ] );
         candidatePairings[ name ] = candidates;
-
+        console.log(candidatePairings);
 
         // }
 
@@ -83,7 +83,7 @@ function getRandomInt(max) {
         pairings[ name ] = pairing;
 
     }
-
+    console.log(pairings)
     return pairings;
 
 };
