@@ -89,7 +89,9 @@ function getRandomInt(max) {
             break;
         }
     }
-    pairings[this.names[this.askers.indexOf(this.submitter[0])]]
-    return pairings;
+    key = this.names[this.askers.indexOf(this.submitter[0])]
+    value = pairings[this.names[this.askers.indexOf(this.submitter[0])]]
+    x = {key: value}
+    return x;
 
 };
