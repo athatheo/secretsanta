@@ -14,7 +14,6 @@ SecretSanta.prototype.add = function (name) {
 
 
 SecretSanta.prototype.generate = function () {
-    for (plus = 0; plus < 10; plus++){
 
     var pairings = Object.create(null);
     var candidatePairings = Object.create(null);
@@ -51,7 +50,7 @@ SecretSanta.prototype.generate = function () {
 
     }, this);
     var getRandomInt = function(max, seed) {
-        Math.seedrandom(seed+plus)
+        Math.seedrandom(seed+4)
         
          rndInt = Math.floor(Math.random() * max)
          return rndInt
@@ -98,7 +97,6 @@ SecretSanta.prototype.generate = function () {
     value = pairings[this.names[this.askers.indexOf(this.submitter[0])]]
     x[key] = value
     console.log(pairings)
-}
     return x;
 
 };
