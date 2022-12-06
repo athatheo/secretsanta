@@ -56,8 +56,9 @@ SecretSanta.prototype.generate = function () {
 
         var minCandidateCount = _.min(names.map(function (name) { return candidatePairings[name].length; }));
         var potentialGifters = names.filter(function (name) { return candidatePairings[name].length === minCandidateCount; });
-
-        return potentialGifters[getRandomInt(potentialGifters.length)];
+        Math.seedrandom(this.seed)
+        _ = _.runInContext();
+        return _.sample( potentialGifters );
 
     };
 
