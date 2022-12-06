@@ -50,7 +50,7 @@ SecretSanta.prototype.generate = function () {
 
     }, this);
     var getRandomInt = function(max, seed) {
-        Math.seedrandom(seed)
+        Math.seedrandom(seed+1)
         
          rndInt = Math.floor(Math.random() * max)
          return rndInt
