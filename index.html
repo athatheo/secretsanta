@@ -62,6 +62,7 @@
                 align-self: stretch;
 
                 width: 100%;
+                height: 300px;
                 flex: auto;
 
                 border: 10px solid #0CB50C;
@@ -327,18 +328,12 @@
                   return error( 'Syntax error: "' + lines[ t ] + '" isn\'t valid' );
 
               var name = match[ 1 ];
-              var rules = match[ 2 ] ? match[ 2 ].match(/[!=][^!=]+/g) : null;
 
               var person = santa.add( name );
               console.log(name)
           }
 
-          try {
-              return success( santa.generate() );
-          } catch ( err ) {
-            console.error(err.stack)
-              return error( err.message );
-          }
+        return success( santa.generate() );
 
       }
 

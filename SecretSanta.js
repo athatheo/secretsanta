@@ -1,32 +1,29 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/2.3.10/seedrandom.min.js"></script>
+
 var SecretSanta = function () {
-
+    this.submitter = []
     this.names = ['Tatinator', 'vostidi', 'protagonistis', 'bobos'];
-
+    this.askers = ['soulta1', 'boston2', 'wattwil3', 'megalexandros4','ichwill5','elcapitano6']
 };
 
 SecretSanta.prototype.add = function ( name ) {
-    if ( this.names.indexOf( name ) !== -1 )
-        throw new Error( 'Cannot redefine ' + name );
-    this.names.push( name );
-    var subapi = { };
-    subapi.enforce = function ( other ) {
-        this.enforced[ name ] = other;
-        return subapi;
-    }.bind( this );
-    subapi.blacklist = function ( other ) {
-        if ( ! Object.prototype.hasOwnProperty.call( this.blacklists, name ) )
-            this.blacklists[ name ] = [];
-        if ( this.blacklists[ name ].indexOf( other ) === -1 )
-            this.blacklists[ name ].push( other );
-        return subapi;
-    }.bind( this );
-    return subapi;
+    if (this.askers.includes(name)) {
+        this.submitter.push( name );
+    }
 };
 
 SecretSanta.prototype.generate = function () {
+    Math.seedrandom('hello.');
+    console.log(Math.random()); 
+    console.log(Math.random()); 
 
     var pairings = Object.create( null );
     var candidatePairings = Object.create( null );
+
+    var flag = true;
+    while (flag) {
+
+    }
 
     this.names.forEach( function ( name ) {            
         var candidates = _.difference( this.names, [ name ] );
