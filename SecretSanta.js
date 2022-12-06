@@ -49,7 +49,6 @@ function getRandomInt(max) {
         //     if ( Object.prototype.hasOwnProperty.call( this.blacklists, name ) )
         //         candidates = _.difference( candidates, this.blacklists[ name ] );
         candidatePairings[ name ] = candidates;
-        console.log(candidatePairings);
 
         // }
 
@@ -72,7 +71,8 @@ function getRandomInt(max) {
 
         if ( candidatePairings[ name ].length === 0 )
             throw new Error('We haven\'t been able to find a match for ' + name + '! Press "Generate" to try again and, if it still doesn\'t work, try removing some exclusions from your rules. Sorry for the inconvenience!');
-
+        this.seed = this.seed + 1
+        var num = getRandomInt(Object.keys(candidatePairings).length)
         var pairing = _.sample( candidatePairings[ name ] );
         delete candidatePairings[ name ];
 
@@ -83,7 +83,13 @@ function getRandomInt(max) {
         pairings[ name ] = pairing;
 
     }
-    console.log(pairings)
+    for (var key in pairings) {
+        if (key==pairings[key]){
+            console.log("FALSE")
+            break;
+        }
+    }
+    pairings[this.names[this.askers.indexOf(this.submitter[0])]]
     return pairings;
 
 };
