@@ -49,8 +49,8 @@ SecretSanta.prototype.generate = function () {
         // }
 
     }, this);
-    var getRandomInt = function(max) {
-        Math.seedrandom(this.seed)
+    var getRandomInt = function(max, seed) {
+        Math.seedrandom(seed)
         
          rndInt = Math.floor(Math.random() * max)
          return rndInt
@@ -61,7 +61,7 @@ SecretSanta.prototype.generate = function () {
 
         var minCandidateCount = _.min(names.map(function (name) { return candidatePairings[name].length; }));
         var potentialGifters = names.filter(function (name) { return candidatePairings[name].length === minCandidateCount; });
-        return potentialGifters[getRandomInt(potentialGifters.length)]
+        return potentialGifters[getRandomInt(potentialGifters.length, potentialGifters)]
 
     };
 
@@ -71,7 +71,7 @@ SecretSanta.prototype.generate = function () {
         console.log(candidatePairings, name)
         if (candidatePairings[name].length === 0)
             throw new Error('We haven\'t been able to find a match for ' + name + '! Press "Generate" to try again and, if it still doesn\'t work, try removing some exclusions from your rules. Sorry for the inconvenience!');
-        var pairing = candidatePairings[name][getRandomInt(candidatePairings[name].length)]//_.sample(candidatePairings[name]);
+        var pairing = candidatePairings[name][getRandomInt(candidatePairings[name].length, candidatePairings[name])]//_.sample(candidatePairings[name]);
         delete candidatePairings[name];
 
         Object.keys(candidatePairings).forEach(function (name) {
