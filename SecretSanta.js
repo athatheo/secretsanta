@@ -1,43 +1,9 @@
 var SecretSanta = function () {
 
-    this.names = [];
+    this.names = ['Tatinator', 'vostidi', 'protagonistis', 'bobos'];
 
     this.enforced = Object.create( null );
     this.blacklists = Object.create( null );
-};
-
-
-SecretSanta.prototype.add = function ( name ) {
-
-    if ( this.names.indexOf( name ) !== -1 )
-        throw new Error( 'Cannot redefine ' + name );
-
-    this.names.push( name );
-
-    var subapi = { };
-
-    subapi.enforce = function ( other ) {
-
-        this.enforced[ name ] = other;
-
-        return subapi;
-
-    }.bind( this );
-
-    subapi.blacklist = function ( other ) {
-
-        if ( ! Object.prototype.hasOwnProperty.call( this.blacklists, name ) )
-            this.blacklists[ name ] = [];
-
-        if ( this.blacklists[ name ].indexOf( other ) === -1 )
-            this.blacklists[ name ].push( other );
-
-        return subapi;
-
-    }.bind( this );
-
-    return subapi;
-
 };
 
 SecretSanta.prototype.generate = function () {
