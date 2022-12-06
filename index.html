@@ -350,23 +350,7 @@
               var rules = match[ 2 ] ? match[ 2 ].match(/[!=][^!=]+/g) : null;
 
               var person = santa.add( name );
-
-              if (rules) {
-
-                  for ( var u = 0, U = rules.length; u < U; ++ u ) {
-
-                      var fnName = {
-
-                          '=': 'enforce',
-                          '!': 'blacklist'
-
-                      }[ rules[ u ].charAt( 0 ) ];
-
-                      person[ fnName ]( rules[ u ].slice( 1 ).trim() );
-
-                  }
-
-              }
+              console.log(name)
 
           }
 
