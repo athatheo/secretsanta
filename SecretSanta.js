@@ -49,16 +49,18 @@ SecretSanta.prototype.generate = function () {
         // }
 
     }, this);
-
+    var seededSample = function(e) {
+        Math.seedrandom(this.seed)
+        _ = _.runInContext();
+        console.log(_.random(e));
+    }
     var findNextGifter = function () {
 
         var names = Object.keys(candidatePairings);
 
         var minCandidateCount = _.min(names.map(function (name) { return candidatePairings[name].length; }));
         var potentialGifters = names.filter(function (name) { return candidatePairings[name].length === minCandidateCount; });
-        Math.seedrandom(this.seed)
-        _ = _.runInContext();
-        console.log(_.random())
+        seededSample(42);
         return _.sample( potentialGifters );
 
     };
